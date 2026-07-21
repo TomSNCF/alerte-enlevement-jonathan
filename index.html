@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <title>Alerte Player</title>
+
+    <meta name="theme-color" content="#000000">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+    <!-- Chargement -->
+    <section id="loader" class="screen">
+
+        <div class="content">
+
+            <div class="spinner"></div>
+
+            <h1 id="loadingText">
+                Chargement de l'alerte...
+            </h1>
+
+        </div>
+
+    </section>
+
+    <!-- Introduction -->
+    <section id="intro" class="screen hidden">
+
+        <div class="content">
+
+            <div class="warning">
+
+                ⚠
+
+            </div>
+
+            <h1 id="title">
+
+                MESSAGE IMPORTANT
+
+            </h1>
+
+            <p id="subtitle">
+
+                Touchez l'écran
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Affiche -->
+    <section id="poster" class="hidden">
+
+    </section>
+
+    <!-- Audio -->
+    <audio
+        id="player"
+        preload="none"
+        loop>
+    </audio>
+
+    <script src="assets/js/config.js"></script>
+
+    <script src="assets/js/app.js"></script>
+
+</body>
+
+</html>
