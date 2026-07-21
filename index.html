@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <title>Alerte Player</title>
+
+    <meta name="theme-color" content="#000000">
+
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/intro.css">
+    <link rel="stylesheet" href="assets/css/poster.css">
+    <link rel="stylesheet" href="assets/css/animation.css">
+
+</head>
+
+<body>
+
+    <!-- Préchargement -->
+    <div id="loader">
+
+        <div class="loader-content">
+
+            <div class="spinner"></div>
+
+            <h1>Chargement de l'alerte...</h1>
+
+        </div>
+
+    </div>
+
+    <!-- Intro -->
+    <div id="intro" class="hidden">
+
+        <div class="intro-content">
+
+            <div class="warning-icon">⚠</div>
+
+            <h1 id="intro-title">MESSAGE IMPORTANT</h1>
+
+            <p id="intro-action">Touchez l'écran</p>
+
+        </div>
+
+    </div>
+
+    <!-- Affiche -->
+    <div id="poster"></div>
+
+    <!-- Flash rouge -->
+    <div id="flash"></div>
+
+    <!-- Debug -->
+    <div id="debug"></div>
+
+    <script src="assets/js/config.js"></script>
+
+    <script src="assets/js/utils.js"></script>
+
+    <script src="assets/js/preload.js"></script>
+
+    <script src="assets/js/intro.js"></script>
+
+    <script src="assets/js/audio.js"></script>
+
+    <script src="assets/js/animation.js"></script>
+
+    <script src="assets/js/fullscreen.js"></script>
+
+    <script src="assets/js/wakeLock.js"></script>
+
+    <script src="assets/js/vibration.js"></script>
+
+    <script src="assets/js/app.js"></script>
+
+</body>
+
+</html>
