@@ -1,77 +1,424 @@
-/* Suppression des marges */
+/* ===========================================================
+   RESET
+=========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
 html,
-body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: black;
-}
+body{
 
-/* Le body occupe toute la fenêtre */
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    width:100%;
+    height:100%;
 
-/* L'image remplit tout l'écran */
-#poster {
-    width: 100vw;
-    height: 100vh;
-    object-fit: contain;
+    overflow:hidden;
 
-    user-select: none;
-    -webkit-user-select: none;
-    -webkit-touch-callout: none;
+    background:#000;
 
-    display: block;
+    touch-action:manipulation;
 
-    opacity:1;
-    transition:opacity 0.5s linear;
-    
-}
+    user-select:none;
+    -webkit-user-select:none;
 
-/* Message affiché avant le lancement du son */
-#overlay {
+    -webkit-touch-callout:none;
 
-    position: fixed;
+    overscroll-behavior:none;
 
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    background: rgba(0,0,0,0.35);
-
-    display: flex;
-    flex-direction: column;
-
-    justify-content: center;
-    align-items: center;
-
-    color: white;
-
-    font-family: Arial, Helvetica, sans-serif;
-
-    text-align: center;
-
-    cursor: pointer;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
 }
 
-#overlay h1 {
+/* ===========================================================
+   FOND
+=========================================================== */
 
-    margin: 0;
-    font-size: 38px;
+#background{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#000;
+
+    z-index:0;
 
 }
 
-#overlay p {
+/* ===========================================================
+   FLASH ROUGE
+=========================================================== */
 
-    margin-top: 15px;
-    font-size: 22px;
+#flash{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#ff0000;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    z-index:100;
+
+}
+
+/* ===========================================================
+   CONTENEUR IMAGE
+=========================================================== */
+
+#posterContainer{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    z-index:5;
+
+    opacity:0;
+
+}
+
+/* ===========================================================
+   IMAGE
+=========================================================== */
+
+#poster{
+
+    width:100vw;
+
+    height:100vh;
+
+    object-fit:contain;
+
+    transform:scale(1);
+
+    will-change:
+        transform,
+        opacity;
+
+    pointer-events:none;
+
+}
+
+/* ===========================================================
+   ECRAN D'ACCUEIL
+=========================================================== */
+
+#intro{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#000;
+
+    z-index:50;
+
+}
+
+#introBox{
+
+    text-align:center;
+
+    color:white;
+
+    animation:fadeIn 1.5s ease;
+
+}
+
+/* ===========================================================
+   PANNEAU
+=========================================================== */
+
+#warning{
+
+    font-size:90px;
+
+    animation:pulse 2s infinite;
+
+}
+
+#intro h1{
+
+    margin-top:15px;
+
+    font-size:44px;
+
+    letter-spacing:6px;
+
+}
+
+#intro p{
+
+    margin-top:25px;
+
+    font-size:24px;
+
+    opacity:.8;
+
+    animation:blink 1.8s infinite;
+
+}
+
+/* ===========================================================
+   LOADER
+=========================================================== */
+
+#loader{
+
+    position:fixed;
+
+    bottom:35px;
+
+    width:100%;
+
+    text-align:center;
+
+    color:#888;
+
+    font-size:16px;
+
+    z-index:60;
+
+}
+
+/* ===========================================================
+   ANIMATIONS
+=========================================================== */
+
+@keyframes pulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.08);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+@keyframes blink{
+
+    0%{
+
+        opacity:.2;
+
+    }
+
+    50%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        opacity:.2;
+
+    }
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+@keyframes fadeOut{
+
+    from{
+
+        opacity:1;
+
+    }
+
+    to{
+
+        opacity:0;
+
+    }
+
+}
+
+/* ===========================================================
+   FLASH
+=========================================================== */
+
+@keyframes flashRed{
+
+    0%{
+
+        opacity:0;
+
+    }
+
+    20%{
+
+        opacity:.95;
+
+    }
+
+    40%{
+
+        opacity:0;
+
+    }
+
+    60%{
+
+        opacity:.95;
+
+    }
+
+    100%{
+
+        opacity:0;
+
+    }
+
+}
+
+/* ===========================================================
+   APPARITION DE L'AFFICHE
+=========================================================== */
+
+@keyframes posterFade{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+/* ===========================================================
+   ZOOM CINEMA
+=========================================================== */
+
+@keyframes cinematicZoom{
+
+    from{
+
+        transform:
+            scale(1)
+            translate(0px,0px);
+
+    }
+
+    25%{
+
+        transform:
+            scale(1.03)
+            translate(-8px,3px);
+
+    }
+
+    50%{
+
+        transform:
+            scale(1.05)
+            translate(6px,-4px);
+
+    }
+
+    75%{
+
+        transform:
+            scale(1.07)
+            translate(-4px,-5px);
+
+    }
+
+    100%{
+
+        transform:
+            scale(1.10)
+            translate(3px,2px);
+
+    }
+
+}
+
+/* ===========================================================
+   SMARTPHONE PAYSAGE
+=========================================================== */
+
+@media (orientation:landscape){
+
+    #poster{
+
+        width:100vw;
+
+        height:100vh;
+
+    }
+
+}
+
+/* ===========================================================
+   SMARTPHONE PORTRAIT
+=========================================================== */
+
+@media (orientation:portrait){
+
+    #poster{
+
+        width:100vw;
+
+        height:100vh;
+
+    }
 
 }
