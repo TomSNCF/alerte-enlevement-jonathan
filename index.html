@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerte Enlèvement</title>
+
+    <link rel="icon" type="image/png" href="affiche.png">
+    <meta name="theme-color" content="#000000">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <img
+        id="poster"
+        src="affiche.png"
+        alt="Affiche">
+
+    <div id="overlay">
+        <h1>Touchez l'écran</h1>
+        <p>pour lancer l'audio</p>
+    </div>
+
+    <audio
+        id="audio"
+        loop
+        preload="auto"
+        playsinline>
+
+        <source src="musique.wav" type="audio/wav">
+
+    </audio>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
